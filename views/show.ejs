@@ -1,0 +1,92 @@
+<% include ./partials/header %>
+<div class="container">
+
+    <div class="container fullname">
+        <h1 class="text-center"><%= data.fullname %></h1>    
+    </div>
+    
+    <div class="box">
+      <div class="box__header">
+        <h3 class="box__header-title">Stats</h3>
+      </div>
+      <div class="box__body">
+        <div class="stats stats--main">
+          <div class="stats__amount"><%= data.record %></div>
+          <div class="stats__caption">Record</div>
+        </div>
+    
+        <div class="stats">
+          <div class="stats__amount"><%= data.association %></div>
+          <div class="stats__caption">Association</div>
+        </div>
+    
+        <div class="stats">
+          <div class="stats__amount"><%= data.hometown %></div>
+          <div class="stats__caption">Hometown</div>
+        </div>
+
+        <div class="stats">
+          <div class="stats__amount"><%= data.nationality %></div>
+          <div class="stats__caption">Nationality</div>
+        </div>
+        
+        <div class="stats">
+          <div class="stats__amount"><%= data.age %></div>
+          <div class="stats__caption">Age</div>
+        </div>
+
+        <div class="stats">
+          <div class="stats__amount"><%= data.birthday %></div>
+          <div class="stats__caption">Birthday</div>
+        </div>
+
+        <div class="stats">
+          <div class="stats__amount"><%= data.height %></div>
+          <div class="stats__caption">Height</div>
+        </div>
+        
+        <div class="stats">
+          <div class="stats__amount"><%= data.weight %></div>
+          <div class="stats__caption">Weight</div>
+        </div>
+
+        <div class="stats">
+          <div class="stats__amount"><%= data.weight_class %></div>
+          <div class="stats__caption">Weight Class</div>
+        </div>
+      </div>
+    </div>    
+    
+    ############
+    
+    
+    
+    <div class="row">
+        <div class="col-md-6">
+            <table>
+                <tr>
+                    <td>Record</td>
+                    <td><%= data.record %></td>
+                </tr>
+                <tr>
+                    <td>Association</td>
+                    <td><%= data.association %></td>
+                </tr>
+            </table>
+            <h2>Record: <%= data.record %></h2>
+            <h2>Association: <%= data.association %></h2>
+            <div class="col-md-3">
+                <h2>Hometown</h2>
+            </div>
+            <div class="col-md-3">
+                <h2><%= data.hometown %></h2>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <h2>Age: <%= data.age %></h2>
+            <h2>Birthday: <%= data.birthday %></h2>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer %>
