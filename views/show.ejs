@@ -1,92 +1,375 @@
-<% include ./partials/header %>
-<div class="container">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fighter Search</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="/stylesheets/show.css">
 
-    <div class="container fullname">
-        <h1 class="text-center"><%= data.fullname %></h1>    
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Pacifico' rel='stylesheet' type='text/css'>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href=/stylesheets/show.css>
+    </head>
+<body>
+
+  <header>
+
+    <i class="fa fa-bars"></i>
+
+    <div class="menu">
+      <p>Menu</p>
+
+      <ul>
+        <li> 
+          <form action="/" method="POST">
+            <div class="header-search">
+              <span class="icon"><i class="fa fa-search" id="search-icon"></i></span>
+              <input type="search" id="search" name="name" placeholder="Search..." />
+            </div>
+          </form>
+        </li>
+        <li class="active"><a href="#"><i class="fa fa-line-chart"></i>Overview</a></li>
+
+        <li><a href="#"><i class="fa fa-folder-open"></i>Fighting Record</a></li>
+        
+        <li><a href="#"><i class="fa fa-male"></i>Fighting Style</a></li>
+        
+        <li><a href="#"><i class="fa fa-calendar"></i>Fights</a><span class="notification"><%= data.fights.length %></span></li>
+      
+        <li><a href="#"><i class="fa fa-wrench"></i>Settings</a></li>
+
+      </ul>
+
+      <p>My account</p>
+
+      <ul>
+
+        <li><a href="#"><i class="fa fa-user"></i> View Profile</a></li>
+
+        <li><a href="#"><i class="fa fa-wrench"></i> Settings</a></li>
+
+        <li><a href="#"><i class="fa fa-paper-plane"></i> Messages</a></li>
+
+        <li><a href="#"><i class="fa fa-sign-out"></i> Log out</a></li>
+
+      </ul>
+
+    </div>
+
+    <div class="account">
+
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217538/profile.jpg" />
+      <p>My account<i class="fa fa-caret-down"></i></p>
+
+    </div>
+
+    <div class="account-box">
+
+      <h3>Jack Thomson</h3>
+
+      <li><a href="#"><i class="fa fa-user"></i> View Profile</a></li>
+
+      <li><a href="#"><i class="fa fa-wrench"></i> Settings</a></li>
+
+      <li><a href="#"><i class="fa fa-paper-plane"></i> Messages</a></li>
+
+      <li><a href="#"><i class="fa fa-sign-out"></i> Log out</a></li>
+
+    </div>
+
+  </header>
+<div id="tabs">
+  <aside>
+    <div id="logo">
+      <h1><a href="/">L</a></h1>
     </div>
     
-    <div class="box">
-      <div class="box__header">
-        <h3 class="box__header-title">Stats</h3>
+    <form action="/" method="POST">
+      <div class="header-search">
+        <span class="icon"><i class="fa fa-search" id="search-icon"></i></span>
+        <input type="search" id="search" name="name" placeholder="Search..." />
       </div>
-      <div class="box__body">
-        <div class="stats stats--main">
-          <div class="stats__amount"><%= data.record %></div>
-          <div class="stats__caption">Record</div>
-        </div>
-    
-        <div class="stats">
-          <div class="stats__amount"><%= data.association %></div>
-          <div class="stats__caption">Association</div>
-        </div>
-    
-        <div class="stats">
-          <div class="stats__amount"><%= data.hometown %></div>
-          <div class="stats__caption">Hometown</div>
-        </div>
+    </form>
 
-        <div class="stats">
-          <div class="stats__amount"><%= data.nationality %></div>
-          <div class="stats__caption">Nationality</div>
-        </div>
-        
-        <div class="stats">
-          <div class="stats__amount"><%= data.age %></div>
-          <div class="stats__caption">Age</div>
-        </div>
+    <ul class="ul-menu">
 
-        <div class="stats">
-          <div class="stats__amount"><%= data.birthday %></div>
-          <div class="stats__caption">Birthday</div>
-        </div>
+      <li class="active"><a class="tab" href="#overview"><i class="fa fa-line-chart"></i>Overview</a></li>
 
-        <div class="stats">
-          <div class="stats__amount"><%= data.height %></div>
-          <div class="stats__caption">Height</div>
-        </div>
-        
-        <div class="stats">
-          <div class="stats__amount"><%= data.weight %></div>
-          <div class="stats__caption">Weight</div>
-        </div>
+      <li><a class="tab" href="#fighting-record"><i class="fa fa-folder-open"></i>Fighting Record</a></li>
+      
+      <li><a class="tab" href="#fighting-style"><i class="fa fa-male"></i>Fighting Style</a></li>
+      
+      <li><a class="tab" href="#fights"><i class="fa fa-calendar"></i>Fights<span class="notification"><%= data.fights.length %></span></a></li>
 
-        <div class="stats">
-          <div class="stats__amount"><%= data.weight_class %></div>
-          <div class="stats__caption">Weight Class</div>
+      <!--<li><a class="tab" href="#"><i class="fa fa-wrench"></i>Settings</a></li>-->
+
+    </ul>
+
+  </aside>
+
+  <div class="fullname">
+      <h2><%= data.fullname %></h2> 
+  </div>
+  <div class="dashboard">
+    <div id="overview">
+      <div class="row">
+  
+        <div class="box">
+          <div class="info">
+            <div class="box__header">
+              <h3 class="box__header-title">General</h3>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.record %></div>
+              <div class="stats__caption">Record</div>
+            </div>
+  
+            <div class="stats">
+              <div class="stats__amount"><%= data.association %></div>
+              <div class="stats__caption">Association</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.hometown %></div>
+              <div class="stats__caption">Hometown</div>
+            </div>
+  
+            <div class="stats">
+              <div class="stats__amount"><%= data.nationality %></div>
+              <div class="stats__caption">Nationality</div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="box">
+  
+          <div class="info">
+            <div class="box__header">
+              <h3 class="box__header-title">Numbers</h3>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.age %></div>
+              <div class="stats__caption">Age</div>
+            </div>
+  
+            <div class="stats">
+              <div class="stats__amount"><%= data.birthday %></div>
+              <div class="stats__caption">Birthday</div>
+            </div>
+  
+            <div class="stats">
+              <div class="stats__amount"><%= data.height %></div>
+              <div class="stats__caption">Height</div>
+            </div>
+  
+            <div class="stats">
+              <div class="stats__amount"><%= data.weight %></div>
+              <div class="stats__caption">Weight</div>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="box">
+          <div class="info">
+            <div class="box__header">
+              <h3 class="box__header-title">Summary</h3>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.weight_class %></div>
+              <div class="stats__caption">Weight Class</div>
+            </div>
+  
+            <div class="stats">
+              <% data.summary.forEach(function(strenght) { %>
+                <div class="stats__amount"><%= strenght %></div>
+              <% }) %>
+              <div class="stats__caption">Strenghts</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.hometown %></div>
+              <div class="stats__caption">Hometown</div>
+            </div>
+  
+            <div class="stats">
+              <div class="stats__amount"><%= data.nationality %></div>
+              <div class="stats__caption">Nationality</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>    
-    
-    ############
-    
-    
-    
-    <div class="row">
-        <div class="col-md-6">
-            <table>
-                <tr>
-                    <td>Record</td>
-                    <td><%= data.record %></td>
-                </tr>
-                <tr>
-                    <td>Association</td>
-                    <td><%= data.association %></td>
-                </tr>
-            </table>
-            <h2>Record: <%= data.record %></h2>
-            <h2>Association: <%= data.association %></h2>
-            <div class="col-md-3">
-                <h2>Hometown</h2>
-            </div>
-            <div class="col-md-3">
-                <h2><%= data.hometown %></h2>
-            </div>
-
-        </div>
-        <div class="col-md-6">
-            <h2>Age: <%= data.age %></h2>
-            <h2>Birthday: <%= data.birthday %></h2>
-        </div>
     </div>
+    
+    <div id="fighting-record">
+      <div class="row">
+        <div class="box-full">
+          <div class="info">
+            <div class="box__header">
+              <h3 class="box__header-title">Record</h3>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.record %></div>
+              <div class="stats__caption">Fight Record</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="box">
+          <div class="info">
+            <div class="box__header">
+              <h3 class="box__header-title">Wins</h3>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.wins.total %></div>
+              <div class="stats__caption">Total</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.wins.knockouts %></div>
+              <div class="stats__caption">Knockouts</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.wins.submissions %></div>
+              <div class="stats__caption">Submissions</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.wins.decisions %></div>
+              <div class="stats__caption">Decisions</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.wins.others %></div>
+              <div class="stats__caption">Others</div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="box">
+          <div class="info">
+            <div class="box__header">
+              <h3 class="box__header-title">Losses</h3>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.losses.total %></div>
+              <div class="stats__caption">Total</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.losses.knockouts %></div>
+              <div class="stats__caption">Knockouts</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.losses.submissions %></div>
+              <div class="stats__caption">Submissions</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.losses.decisions %></div>
+              <div class="stats__caption">Decisions</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.losses.others %></div>
+              <div class="stats__caption">Others</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="fighting-style">
+      <div class="row">
+        <div class="box">
+          <div class="info">
+            <div class="box__header">
+              <h3 class="box__header-title">Strikes</h3>
+            </div>
+            <div class="circle-div">
+              <span class="circle c-striking"><%= data.strikes.rate %>%</br>Success Rate</span>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.strikes.attempted %></div>
+              <div class="stats__caption">Attempted</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.strikes.successful %></div>
+              <div class="stats__caption">Successful</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.strikes.standing %></div>
+              <div class="stats__caption">Standing</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.strikes.clinch %></div>
+              <div class="stats__caption">Clinch</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.strikes.ground %></div>
+              <div class="stats__caption">Ground</div>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="info">
+            <div class="box__header">
+              <h3 class="box__header-title">Takedowns</h3>
+            </div>
+            <div class="circle-div">
+              <span class="circle c-takedowns"><%= data.takedowns.rate %>%</br>Success Rate</span>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.takedowns.attempted %></div>
+              <div class="stats__caption">Attempted</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.takedowns.successful %></div>
+              <div class="stats__caption">Successful</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.takedowns.submissions %></div>
+              <div class="stats__caption">Submissions</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.takedowns.passes %></div>
+              <div class="stats__caption">Passes</div>
+            </div>
+            <div class="stats">
+              <div class="stats__amount"><%= data.takedowns.sweeps %></div>
+              <div class="stats__caption">Sweeps</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="fights">
+      <div class="row">
+        <div class="profits">
+          <div class="info">
+            <span class="circle c-profits">$2.5M</br>profits</span>
+            <p>Here's an overview of our total profits over the fiscal year 2015. We are currently 210% up from our previous year so well done everyone! Lets keep these sales going!</p>
+          </div>
+        </div>
+        <div class="expenses">
+          <div class="info">
+            <span class="circle c-takedowns">$900K</br>expenses</span>
+            <p>Here's an overview of our total expenses over the fiscal year 2015. We are currently 120% down from our previous year so well done everyone!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<% include ./partials/footer %>
+  <!-- Compiled and minified jQuery 2.1.3 -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>'-->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  
+  <!--jQuery UI-->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  
+  <!-- CDN for chart js -->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>-->
+
+  <!-- Compiled and minified global js file -->
+  <!--<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217538/global-min.js"></script>-->
+  <script src="/js/global.js"></script>
+
+</body>
+
+</html>

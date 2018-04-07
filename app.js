@@ -15,8 +15,18 @@ app.get("/", function(req, res) {
 // SEARCH
 app.post("/", function(req, res) {
     mma.fighter(req.body.name, function(data) {
-        res.render("show", {data: data});
-        console.log(data);
+        if (data) {
+            var rate = 0;
+            rate = Math.floor((data.strikes.successful / data.strikes.attempted) * 100);
+            data.strikes.rate = rate;
+            rate = Math.floor((data.takedowns.successful / data.takedowns.attempted) * 100);
+            data.takedowns.rate = rate;
+            
+            res.render("show", {data: data});
+            console.log(data);
+        } else {
+            res.send("Invalid Fighter Request!!");
+        }
     });
 });
 
