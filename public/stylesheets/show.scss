@@ -1,0 +1,505 @@
+// Simple reset
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// Variables
+
+$primary-color: #2C3E50;
+$profits-color: #9B59B6;
+$takedowns-color: #2980B9;
+$striking-color: #AD3A3A;
+
+// Mixins
+
+@mixin font-size($sizeValue) {
+    font-size: $sizeValue + px;
+    font-size: $sizeValue / 16 * 1 + rem;
+}
+
+@mixin font-size-important($sizeValue) {
+    font-size: ($sizeValue + px) !important;
+    font-size: $sizeValue / 16 * 1 + rem;
+}
+
+// Default styles
+
+html, body {
+    background: $primary-color;
+    font-family: "Source Sans Pro", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+header {
+  position: absolute;
+  right: 0;
+  height: 0;
+}
+
+.header-search {
+  width: 100%;;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.menu-search {
+  width: 100%;;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.header-search input#search{
+  width: 100%;
+  height: 50px;
+  background: lighten($primary-color, 4%);
+  border: none;
+  font-size: 15pt;
+  float: left;
+  color: #63717f;
+  padding-left: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.header-search input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.header-search input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.header-search input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.header-search input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+.header-search .icon #search-icon {
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 16px;
+  z-index: 1;
+  color: #4f5b66;
+}
+.account {
+    margin: 20px 150px;
+    img {
+        float: right;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+    p {
+        float: right;
+        color: #FFF;
+        margin: 7px -160px;
+        font-size: 15px;
+    }
+}
+
+.account-box:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid darken($primary-color, 7%);
+    margin: -7px 34px;
+    float: right;
+}
+
+.account-box {
+    background: darken($primary-color, 7%);
+    border-radius: 3px;
+    width: 80%;
+    height: 300px;
+    border: none;
+    margin: 50px 60px;
+    position: absolute;
+    h3 {
+        text-align: center;
+        color: #FFF;
+        padding: 20px;
+        font-weight: 300;
+        border-bottom: 1px solid darken($primary-color, 5%);
+    }
+    li {
+        list-style: none;
+        padding: 15px;
+        width: 38.8%;
+        float: left;
+        transition: all ease 0.4s;
+    }
+    li:hover {
+        background: darken($primary-color, 5%);
+    }
+    a {
+        text-decoration: none;
+        color: #FFF;
+    }
+}
+
+aside {
+    background: darken($primary-color, 5%);
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+
+    ul {
+        margin: 50px 0;
+    }
+    li {
+        // list-style: none;
+        // padding: 0px;
+        // transition: all ease 0.4s;
+        // height: 45px;
+        // padding-top: 20px;
+        display: block;
+    }
+    li.active {
+        background: darken($primary-color, 10%);
+    }
+    li:hover {
+        background: darken($primary-color, 10%);
+    }
+    
+    a {
+        color: #FFF;
+        text-decoration: none;
+        font-size: 12.5px;
+        padding-left: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        @include font-size(12.5);
+    }
+    h1 {
+        font-family: 'Pacifico', cursive;
+        color: #FFF;
+        text-align: center;
+        margin-top: 20px;
+        a {
+            @include font-size(80);
+        }
+    }
+    
+    #logo {
+        height: 194px;
+        text-align: center;
+        display: table;
+        width: 100%;
+    }
+    
+    #logo h1 {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.tab {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 20.5px;
+    padding-left: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-top: 28px;
+    padding-bottom: 10px;
+    transition: all ease 0.4s;
+    height: 45px;
+    display: block;
+    outline: none;
+}
+
+.notification {
+    background: #2980B9;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 100%;
+    color: #FFF;
+    font-weight: 400;
+    float: right;
+    margin-top: -2px;
+    margin-right: 10px;
+    @include font-size(14);
+}
+
+.dashboard {
+    background: $primary-color;
+    width: 80%;
+    height: 100%;
+    float: right;
+}
+
+// Row Styles
+.row {
+    width: 100%;
+    margin-top: 20px;
+    p {
+        float: left;
+        margin: -110px 150px;
+        color: #FFF;
+        font-weight: 400;
+        width: 60%;
+        @include font-size(14);
+    }
+}
+
+.profits {
+    background: darken($primary-color, 2%);
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+.expenses {
+    background: darken($primary-color, 5%);
+    width: 50%;
+    height: auto;
+    float: right;
+}
+
+.info {
+    padding: 25px;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 10px solid darken($primary-color, 3%);
+    color: #FFF;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.circle-div {
+    width: 100%;
+
+    /* Firefox */
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    /* Safari and Chrome */
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    /* W3C */
+    display: box;
+    box-pack: center;
+    box-align: center;
+    
+    padding-bottom: 25px;
+}
+
+.c-striking {
+    background: transparent;
+    border-top-color: $striking-color;
+    border-right-color: $striking-color;
+    border-bottom-color: $striking-color;
+}
+
+.c-takedowns {
+    background: transparent;
+    border-top-color: $takedowns-color;
+    border-right-color: $takedowns-color;
+}
+
+.c-profits {
+    background: transparent;
+    border-top-color: $profits-color;
+    border-right-color: $profits-color;
+    border-bottom-color: $profits-color;
+}
+
+.fullname {
+    width: 80%;
+    text-align: center;
+    color: white;
+    font-size: 400%;
+    padding-top: 50px;
+    float: right;
+    padding-bottom: 4px;
+}
+
+.box {
+	border-radius: 5px;
+	width: 50%;
+    background: linear-gradient(to right, #141e30, #243b55);
+    height: auto;
+    float: left;
+}
+
+.box-full {
+	border-radius: 5px;
+	width: 100%;
+    background: linear-gradient(to right, #141e30, #243b55);
+    height: auto;
+    float: left;
+    text-align: center;
+    
+    .box__header-title {
+        font-size: 50px;
+        padding-bottom: 0;
+    }
+    
+    .stats__amount {
+        font-size: 70px;
+    }
+}
+
+// .box__header {
+// 	position: relative;
+// }
+
+.box__header-title {
+	color: #fff;
+	font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Pacifico';
+    padding-bottom: 25px;
+}
+
+/* STATS */
+
+.stats {
+	color: #fff;
+// 	position: relative;
+	padding-bottom: 25px;
+}
+
+.stats__amount {
+	font-size: 42px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.stats__caption {
+	font-size: 24px;
+
+}
+
+#fighting-record {
+    .info {
+        text-align: center;
+    }
+}
+
+#fighting-style  {
+    .stats {
+        float: left;
+        padding: 25px;
+        width: 100px;
+    }
+    .box {
+        padding-bottom: 25px;
+    }
+}
+
+// Font Awesome styles
+
+.fa {
+    color: #FFF;
+    padding-right: 10px;
+    @include font-size-important(20.5);
+}
+
+.fa.fa-caret-down {
+    margin: 0 10px;
+}
+
+.fa.fa-bars {
+    float: right;
+    margin: 30px 20px;
+    visibility: hidden;
+    @include font-size-important(20);
+}
+
+@media screen and (max-width: 1100px) {
+    aside {
+        visibility: hidden;
+    }
+    .profits, .expenses, .box {
+        width: 100%;
+    }
+    .dashboard {
+        width: 100%;
+    }
+    .fullname {
+        width: 100%;
+    }
+    .account {
+        visibility: hidden;
+    }
+    .menu {
+        width: 100vw;
+        height: 100vh;
+        background: $primary-color;
+        margin: 0 0;
+        padding-bottom: 60px;
+        position: absolute;
+        top: 60px;
+        ul {
+            margin: -50px 30px;
+            text-align: left;
+        }
+        li {
+            list-style: none;
+            padding: 20px 0;
+            margin: 0 0;
+        }
+        a {
+            text-decoration: none;
+            color: #FFF;
+        }
+        p {
+            background: darken($primary-color, 4%);
+            padding: 20px;
+            color: #FFF;
+            text-align: center;
+            margin: 90px 0;
+            font-weight: 700;
+        }
+        p:nth-child(1) {
+            margin-top: 0;
+            margin-bottom: 40px;
+        }
+        .header-search input#search {
+            margin-bottom: 40px;
+            padding-left: 40%;
+        }
+    }
+    .fa.fa-bars {
+        visibility: visible;
+        width: 100vw;
+        text-align: right;
+        background: $primary-color;
+        box-sizing: border-box;
+        margin: 0;
+        height: 60px;
+        padding: 20px;
+    }
+}
+
