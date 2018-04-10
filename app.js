@@ -1,19 +1,31 @@
 var express = require("express");
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
 var app = express();
 var bodyParser = require("body-parser");
 var mma = require('mma');
-
 var GoogleImages = require('google-images');
 var client = new GoogleImages(process.env.CSE_ID, process.env.API_KEY);
 
+app.use(cookieParser('secret'));
+app.use(session({cookie: { maxAge: 60000 }}));
+app.use(flash());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
+// FLASH message
+// app.get('/flash', function(req, res){
+//   // Set a flash message by passing the key, followed by the value, to req.flash().
+//   req.flash('info', 'Invalid Fighter Request!');
+//   res.redirect('/');
+// });
+
 // INDEX
 app.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", { info: req.flash('info') });
 });
 
 // SEARCH
@@ -73,7 +85,10 @@ app.post("/", function(req, res) {
             // res.render("show", {data: data});            
 
         } else {
-            res.send("Invalid Fighter Request!!");
+            req.flash("info", "Invalid Fighter Name Requested");
+            //res.send(JSON.stringify(req.flash("info", "Invalid Fighter")));
+            res.redirect("/");
+            //res.send("Invalid Fighter Request!!");
         }
     });
 });

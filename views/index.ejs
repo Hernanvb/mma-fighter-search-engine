@@ -9,6 +9,13 @@
         <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     </head>
     <body>
+        <div class="container error-message">
+            <% if (info && info.length > 0) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= info %>
+                </div>
+            <% } %> 
+        </div>
         <div id="landing-header">
          	<h1>Fighter Search</h1>
             <form action="/" method="POST">

@@ -81,6 +81,13 @@ body {
     width: 60vw;
 }
 
+.alert-danger {
+    z-index: 1;
+    opacity: 1;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
 /* Older browser support - .no-cssanimations class added by modernizr */
 /*.no-cssanimations .slideshow li {*/
 /*	opacity: 1;*/

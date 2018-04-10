@@ -22,8 +22,11 @@
   "homepage": "https://github.com/Hernanvb/mma-ui#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.5.8",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "google-images": "^2.1.0",
     "mma": "^0.2.0"
   }
