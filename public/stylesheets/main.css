@@ -89,6 +89,21 @@ body {
     text-align: center;
 }
 
+
+@media screen and (max-width: 1100px) and (min-height: 500px) {
+  #landing-header h1{
+    margin-bottom: 0;
+  }
+  
+  .form-group input {
+    margin: 35px auto;
+    width: 75vw;
+  }
+  
+  .btn-lg {
+    width: 75vw;
+  }
+}
 /* Older browser support - .no-cssanimations class added by modernizr */
 /*.no-cssanimations .slideshow li {*/
 /*	opacity: 1;*/
