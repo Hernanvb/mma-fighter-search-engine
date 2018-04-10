@@ -7,7 +7,9 @@ html, body {
   font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  overflow-y: scroll;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   height: 100vh; }
 
 header {
@@ -266,7 +268,8 @@ aside {
   font-size: 400%;
   padding-top: 50px;
   float: right;
-  padding-bottom: 24px; }
+  padding-bottom: 24px;
+  text-transform: capitalize; }
 
 .box {
   border-radius: 5px;
@@ -304,7 +307,8 @@ aside {
 .stats__amount {
   font-size: 42px;
   font-weight: 700;
-  line-height: 1.2; }
+  line-height: 1.2;
+  text-transform: capitalize; }
 
 .stats__caption {
   font-size: 24px; }
@@ -319,6 +323,20 @@ aside {
 
 #fighting-style .box {
   padding-bottom: 25px; }
+
+@media screen and (min-width: 1100px) {
+  #fights {
+    margin-right: 80px;
+    margin-left: 80px; }
+    #fights .box {
+      border-radius: 5%; } }
+
+#fights .box {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 80px;
+  background-size: cover !important;
+  background-position: center center !important; }
 
 .fa {
   color: #FFF;
@@ -356,11 +374,11 @@ aside {
     position: absolute;
     top: 60px; }
     .menu ul {
-      margin: -50px 30px;
-      text-align: left; }
+      text-align: left;
+      padding-bottom: 10px; }
     .menu li {
       list-style: none;
-      padding: 20px 0;
+      padding: 0 0;
       margin: 0 0; }
     .menu a {
       text-decoration: none;
@@ -370,14 +388,14 @@ aside {
       padding: 20px;
       color: #FFF;
       text-align: center;
-      margin: 90px 0;
       font-weight: 700; }
-    .menu p:nth-child(1) {
-      margin-top: 0;
-      margin-bottom: 40px; }
+    .menu span.icon {
+      position: absolute;
+      left: 5%; }
     .menu .header-search input#search {
-      margin-bottom: 40px;
-      padding-left: 40%; }
+      margin-bottom: 10px;
+      padding-left: 40%;
+      float: none; }
   .fa.fa-bars {
     visibility: visible;
     width: 100vw;
@@ -386,4 +404,9 @@ aside {
     box-sizing: border-box;
     margin: 0;
     height: 60px;
-    padding: 20px; } }
+    padding: 20px; }
+  .mobile-tab {
+    list-style: none;
+    padding: 20px 30px;
+    margin: 0 0;
+    display: block; } }

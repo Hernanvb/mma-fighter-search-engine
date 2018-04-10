@@ -26,12 +26,13 @@ $(selector).on('click', function(){
     $(this).addClass('active');
 });
 
-// $( function() {
-//   $( "#tabs" ).tabs();
-// } );
+$( function() {
+  $( "#tabs" ).tabs();
+});
 
-$("#tabs").tabs({
+$("#mobile-tabs").tabs({
     activate: function (event, ui) {
-        var active = $('#tabs').tabs('option', 'active');
+        var active = $('#mobile-tabs').tabs('option', 'active');
+        menu.fadeToggle();
     }
 });

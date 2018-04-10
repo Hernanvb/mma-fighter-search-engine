@@ -31,7 +31,10 @@ html, body {
     font-family: "Source Sans Pro", sans-serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-    overflow-x: hidden;
+    //overflow-x: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+    -webkit-overflow-scrolling: touch;
     height: 100vh;
 }
 
@@ -340,6 +343,7 @@ aside {
     padding-top: 50px;
     float: right;
     padding-bottom: 24px;
+    text-transform: capitalize;
 }
 
 .box {
@@ -393,6 +397,7 @@ aside {
 	font-size: 42px;
 	font-weight: 700;
 	line-height: 1.2;
+    text-transform: capitalize;
 }
 
 .stats__caption {
@@ -414,6 +419,24 @@ aside {
     }
     .box {
         padding-bottom: 25px;
+    }
+}
+
+#fights {
+    @media screen and (min-width: 1100px) {
+        margin-right: 80px;
+        margin-left: 80px;
+        
+        .box {
+            border-radius: 5%;
+        }
+    }
+    .box {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 80px;
+        background-size: cover !important;
+        background-position: center center !important;
     }
 }
 
@@ -461,12 +484,12 @@ aside {
         position: absolute;
         top: 60px;
         ul {
-            margin: -50px 30px;
             text-align: left;
+            padding-bottom: 10px;
         }
         li {
             list-style: none;
-            padding: 20px 0;
+            padding: 0 0;
             margin: 0 0;
         }
         a {
@@ -478,17 +501,23 @@ aside {
             padding: 20px;
             color: #FFF;
             text-align: center;
-            margin: 90px 0;
+            // margin: 90px 0;
             font-weight: 700;
         }
-        p:nth-child(1) {
-            margin-top: 0;
-            margin-bottom: 40px;
+        // p:nth-child(1) {
+        //     margin-top: 0;
+        //     margin-bottom: 40px;
+        // }
+        span.icon {
+            position: absolute;
+            left: 5%;
         }
         .header-search input#search {
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             padding-left: 40%;
+            float: none;
         }
+        
     }
     .fa.fa-bars {
         visibility: visible;
@@ -499,6 +528,12 @@ aside {
         margin: 0;
         height: 60px;
         padding: 20px;
+    }
+    .mobile-tab {
+        list-style: none;
+        padding: 20px 30px;
+        margin: 0 0;
+        display: block;
     }
 }
 
