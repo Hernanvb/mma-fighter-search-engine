@@ -16,13 +16,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
-// FLASH message
-// app.get('/flash', function(req, res){
-//   // Set a flash message by passing the key, followed by the value, to req.flash().
-//   req.flash('info', 'Invalid Fighter Request!');
-//   res.redirect('/');
-// });
-
 // INDEX
 app.get("/", function(req, res) {
     res.render("index", { info: req.flash('info') });
@@ -40,7 +33,7 @@ app.post("/", function(req, res) {
             rate = Math.floor((data.takedowns.successful / data.takedowns.attempted) * 100);
             data.takedowns.rate = rate;
             
-            // if thre is info for the fighter but the name or full name is 
+            // if there is info for the fighter but the name or full name is 
             // not specified, then add the user query as the fighter's name
             if (data.name.length == 0 && data.fullname.length == 0)
                 data.fullname = req.body.name;
@@ -53,7 +46,6 @@ app.post("/", function(req, res) {
                         client.search(query, {size: 'large'})
                     	.then(images => {
                             fight.poster = images[0].url;
-                         //   console.log(fight.poster);
                     	})
                     	.catch((e) => {
                     	    console.log("Google Image Search Promise Error", e);
@@ -70,40 +62,15 @@ app.post("/", function(req, res) {
             //     // handle errors here
             //     console.log("Promise Error");
             // });
-            
-            /*
-            data.fights.forEach(function(fight) {
-                if (fight.name.length > 0) {
-                    getPosterInfo(fight, function (posterUrl) {
-                        fight.poster = posterUrl;
-                        console.log(fight);
-                    });
-                }
-            });
-            */
-
-            // res.render("show", {data: data});            
-
         } else {
             req.flash("info", "Invalid Fighter Name Requested");
-            //res.send(JSON.stringify(req.flash("info", "Invalid Fighter")));
             res.redirect("/");
-            //res.send("Invalid Fighter Request!!");
         }
     });
 });
 
-function getPosterInfo (fight, callback) {
-    // use google-images API to search for fight posters
-    client.search(fight.name, {size: 'xlarge'})
-    	.then(images => {
-            callback(images[0].url);
-    	});
-}
-
 process.on('unhandledRejection', (reason, p) => {
   console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
-  // application specific logging, throwing an error, or other logic here
 });
 
 app.listen(process.env.PORT, process.env.IP, function() {
