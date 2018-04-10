@@ -6,7 +6,7 @@ body {
   z-index: 1;
   position: relative;
   text-align: center;
-  padding-top: 40vh;
+  padding-top: 35vh;
 }
 
 #landing-header h1 {
@@ -86,6 +86,7 @@ body {
     opacity: 1;
     margin-top: 16px;
     margin-bottom: 0;
+    text-align: center;
 }
 
 /* Older browser support - .no-cssanimations class added by modernizr */
