@@ -113,6 +113,9 @@ header {
     text-decoration: none;
     color: #FFF; }
 
+div.hidden {
+  display: none; }
+
 aside {
   background: #233140;
   width: 20%;

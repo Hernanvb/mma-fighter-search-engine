@@ -36,3 +36,7 @@ $("#mobile-tabs").tabs({
         menu.fadeToggle();
     }
 });
+
+$(document).ready(function() {
+  $(".hidden").removeClass("hidden");
+})

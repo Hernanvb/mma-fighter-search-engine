@@ -154,6 +154,10 @@ header {
     }
 }
 
+div.hidden {
+    display: none;
+}
+
 aside {
     background: darken($primary-color, 5%);
     width: 20%;
