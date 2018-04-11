@@ -104,6 +104,21 @@ body {
     width: 75vw;
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .slideshow li:nth-child(3) { 
+    background-image: url(/img/cyborg-ufc.jpg);
+    animation-delay: 20s; 
+  }
+  .slideshow li:nth-child(4) { 
+    background-image: url(/img/brock.jpg);
+    animation-delay: 30s; 
+  }
+  .slideshow li:nth-child(5) { 
+    background-image: url(/img/rousey-ko-mobile.jpg);
+    animation-delay: 40s; 
+  }
+}
 /* Older browser support - .no-cssanimations class added by modernizr */
 /*.no-cssanimations .slideshow li {*/
 /*	opacity: 1;*/
