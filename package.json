@@ -29,6 +29,6 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "google-images": "^2.1.0",
-    "mma": "github:hernanvb/mma-api"
+    "mma": "^0.2.0"
   }
 }
